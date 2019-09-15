@@ -1,0 +1,15 @@
+two pomodoros for unity errors:
+  I
+  II
+
+// FIXED
+----JSON parse error:
+      an error with pro-builder
+      it needs a json config file
+      it came in empty from our repo
+      it tried to auto-refill, but we killed it
+      lets see if filling it back in fixes it
+
+Obj ref with pro-builder:
+  Don't think this is breaking anymore? Need another build...
+
