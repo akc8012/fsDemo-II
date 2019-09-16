@@ -3,7 +3,10 @@ Don't forget controller from work!!
 The Great Refactor (2019):
   ----Make sure all inputs are working (PlayerMovement.cs)
   ----Whitespace / Weird spacing
-  Do we need ProBuilder??
+  ----Do we need ProBuilder??
+        Env cubes seem to be using it
+        Not REQUIRED(?) it seems, but nice to have
+        Built into Unity now, lets not mess with it
 
 
 ----Intellisense for VS Code Unity:
