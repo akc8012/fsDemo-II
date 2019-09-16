@@ -11,7 +11,7 @@ public class RingScript : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if(!activated)
+		if (!activated)
 			transform.eulerAngles += new Vector3(0, speed, 0) * Time.deltaTime;
 	}
 

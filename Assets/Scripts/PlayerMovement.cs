@@ -66,8 +66,6 @@ public class PlayerMovement : MonoBehaviour
 			int dir = Input.GetButtonDown("TriggerL") ? -1 : 1;
 			QuickSpin(dir);
 		}
-
-
 	}
 
 	void LocalMove(float x, float y, float speed)
@@ -139,10 +137,8 @@ public class PlayerMovement : MonoBehaviour
 		Camera.main.GetComponent<PostProcessVolume>().profile.GetSetting<ChromaticAberration>().intensity.value = x;
 	}
 
-
 	void Boost(bool state)
 	{
-
 		if (state)
 		{
 			cameraParent.GetComponentInChildren<CinemachineImpulseSource>().GenerateImpulse();
