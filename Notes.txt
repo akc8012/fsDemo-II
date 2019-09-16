@@ -1,6 +1,11 @@
-two pomodoros for unity errors:
-  I
-  II
+
+Intellisense for VS Code Unity:
+
+
+
+Verify that DOTween is working/needed:
+  It uses a .dll so.... (shrug)
+
 
 // FIXED
 ----JSON parse error:
@@ -12,4 +17,5 @@ two pomodoros for unity errors:
 
 Obj ref with pro-builder:
   Don't think this is breaking anymore? Need another build...
+
 
