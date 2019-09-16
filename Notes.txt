@@ -8,6 +8,19 @@ The Great Refactor (2019):
         Not REQUIRED(?) it seems, but nice to have
         Built into Unity now, lets not mess with it
 
+How It Works:
+  PlayerMovement:
+    Controls the plane within *2D screen-space*
+    Cannot pass screen boundaries
+    Rotates around to follow a point based on input
+    IMPORANTLY: Does not control forward motion, and overall rotation!! This is done by the `Cinemachine Smooth Path`
+      If you turn off the PlayerMovement script - plane still moves FORWARD and ROTATES along track, just do not have screen-space movement!!
+  CameraFollow:
+    Handles *screen-space* camera movement based on player
+    Does not move camera forward OR rotate camera!! This is done by Cinemachine
+    Actually *extends* player movement boundary, but is still clamped
+    When CameraFollow is turned off, player still moves around 2D screen-boundary, but camera does not follow on screen-space
+
 
 ----Intellisense for VS Code Unity:
   GOTTEM!
