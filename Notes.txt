@@ -1,13 +1,19 @@
+Don't forget controller from work!!
 
-Intellisense for VS Code Unity:
+The Great Refactor (2019):
+  Make sure all inputs are working (PlayerMovement.cs)
+  Whitespace / Weird spacing
+  Do we need ProBuilder??
 
 
+----Intellisense for VS Code Unity:
+  GOTTEM!
+  I didn't have mono installed, and you can't use flatpak app with VS Code
 
-Verify that DOTween is working/needed:
+---- Verify that DOTween is working/needed:
   It uses a .dll so.... (shrug)
+  Yup! It works! (somehow)
 
-
-// FIXED
 ----JSON parse error:
       an error with pro-builder
       it needs a json config file
@@ -15,7 +21,7 @@ Verify that DOTween is working/needed:
       it tried to auto-refill, but we killed it
       lets see if filling it back in fixes it
 
-Obj ref with pro-builder:
-  Don't think this is breaking anymore? Need another build...
+----Obj ref with pro-builder:
+      Don't think this is breaking anymore? Need another build...
 
 
