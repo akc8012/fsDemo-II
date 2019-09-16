@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
 		float v = joystick ? Input.GetAxis("Vertical") : Input.GetAxis("Mouse Y");
 
 		LocalMove(h, v, xySpeed);
-		RotationLook(h,v, lookSpeed);
+		RotationLook(h, v, lookSpeed);
 		HorizontalLean(playerModel, h, 80, .1f);
 
 		if (Input.GetButtonDown("Action"))
@@ -100,7 +100,6 @@ public class PlayerMovement : MonoBehaviour
 		Gizmos.color = Color.blue;
 		Gizmos.DrawWireSphere(aimTarget.position, .5f);
 		Gizmos.DrawSphere(aimTarget.position, .15f);
-
 	}
 
 	public void QuickSpin(int dir)
