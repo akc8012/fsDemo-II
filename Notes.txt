@@ -7,6 +7,7 @@ The Great Refactor (2019):
         Env cubes seem to be using it
         Not REQUIRED(?) it seems, but nice to have
         Built into Unity now, lets not mess with it
+  DOTween as new-fangled Unity package?
 
 How It Works:
   PlayerMovement:
@@ -20,6 +21,17 @@ How It Works:
     Does not move camera forward OR rotate camera!! This is done by Cinemachine
     Actually *extends* player movement boundary, but is still clamped
     When CameraFollow is turned off, player still moves around 2D screen-boundary, but camera does not follow on screen-space
+
+Triggers (Player Collision):
+  Each scene cube has a mesh (FOR SOME REASON) collider, non-trigger
+  Player has trigger box collider and rigidbody
+  OnTriggerEnter is called ONCE on enter and ONCE on exit
+    This is not a problem for us, since we'll only ever enter once, quickly
+
+CinemachineDollyCart:
+  Position is a float that tells along the CinemachineSmoothPath we are
+    0 is reset to start
+  *For testing: We can set Speed to 0 and change position to test the track!!!*
 
 
 ----Intellisense for VS Code Unity:
