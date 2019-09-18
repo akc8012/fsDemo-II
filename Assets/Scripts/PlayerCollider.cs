@@ -20,7 +20,7 @@ public class PlayerCollider : MonoBehaviour
 			return;
 
 		Debug.Log($"Collided with {other.gameObject.name}!");
-		DoDelayedCartReset();		
+		DoDelayedCartReset();
 	}
 
 	// ToDo: This should probably be handled elsewhere

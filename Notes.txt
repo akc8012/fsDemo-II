@@ -33,6 +33,10 @@ CinemachineDollyCart:
     0 is reset to start
   *For testing: We can set Speed to 0 and change position to test the track!!!*
 
+Reverse:
+  We'll need to *disable* PlayerMovement and dolly camera track movement while the Reverse script is going
+  (We should have a script called Reverse, that's cool)
+
 
 ----Intellisense for VS Code Unity:
   GOTTEM!
