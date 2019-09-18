@@ -38986,6 +38986,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1317505858}
   - component: {fileID: 1317505857}
+  - component: {fileID: 1317505859}
   m_Layer: 0
   m_Name: MovementRecorder
   m_TagString: Untagged
@@ -39006,7 +39007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetTransform: {fileID: 954956294}
-  WaitInterval: 0.1
+  WaitInterval: 0.0025
 --- !u!4 &1317505858
 Transform:
   m_ObjectHideFlags: 0
@@ -39021,6 +39022,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1317505859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317505856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47b5ca9dbd3192668b0b6102762cd628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetTransform: {fileID: 954956294}
+  MovementRecorder: {fileID: 1317505857}
+  ScriptsToDisable:
+  - {fileID: 361593942}
+  - {fileID: 959202326}
+  - {fileID: 1317505857}
+  WaitInterval: 0.0025
 --- !u!43 &1323870909
 Mesh:
   m_ObjectHideFlags: 0

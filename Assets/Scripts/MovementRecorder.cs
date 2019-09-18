@@ -11,7 +11,8 @@ public class MovementRecorder : MonoBehaviour
 	[SerializeField]
 	float WaitInterval = 0.1f;
 
-	MovementStack MovementStack = new MovementStack();
+	// ToDo: public bad
+	public MovementStack MovementStack = new MovementStack();
 
 	void Awake() => StartCoroutine(RecordMovement());
 
