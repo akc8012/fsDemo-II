@@ -7,6 +7,10 @@ public class PlayerCollider : MonoBehaviour
 {
 	[SerializeField]
 	CinemachineDollyCart CinemachineDollyCart;
+	
+	[SerializeField]
+	PlayerMovement PlayerMovement;
+	
 	float LastCartSpeed;
 	bool InCollisionPause = false;
 
@@ -26,6 +30,7 @@ public class PlayerCollider : MonoBehaviour
 
 		LastCartSpeed = CinemachineDollyCart.m_Speed;
 		CinemachineDollyCart.m_Speed = 0;
+		PlayerMovement.enabled = false;
 		Invoke("ResetCartPositionAndSpeed", 1);
 	}
 
@@ -35,5 +40,6 @@ public class PlayerCollider : MonoBehaviour
 
 		CinemachineDollyCart.m_Position = 0;
 		CinemachineDollyCart.m_Speed = LastCartSpeed;
+		PlayerMovement.enabled = true;
 	}
 }

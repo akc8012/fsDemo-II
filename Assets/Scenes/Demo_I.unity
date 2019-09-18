@@ -34413,6 +34413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CinemachineDollyCart: {fileID: 361593942}
+  PlayerMovement: {fileID: 0}
 --- !u!43 &922765601
 Mesh:
   m_ObjectHideFlags: 0
@@ -35230,7 +35231,6 @@ GameObject:
   - component: {fileID: 959202325}
   - component: {fileID: 959202326}
   - component: {fileID: 959202329}
-  - component: {fileID: 959202327}
   - component: {fileID: 959202328}
   m_Layer: 0
   m_Name: Player
@@ -35278,19 +35278,6 @@ MonoBehaviour:
   circle: {fileID: 1498601225}
   barrel: {fileID: 906174192}
   stars: {fileID: 908740349}
---- !u!65 &959202327
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 959202324}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3, y: 2, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &959202328
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -35320,6 +35307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CinemachineDollyCart: {fileID: 361593942}
+  PlayerMovement: {fileID: 959202326}
 --- !u!1 &967883866
 GameObject:
   m_ObjectHideFlags: 0
