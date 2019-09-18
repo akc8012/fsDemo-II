@@ -7,9 +7,33 @@ public class PlayerCollider : MonoBehaviour
 {
 	[SerializeField]
 	CinemachineDollyCart CinemachineDollyCart;
+	float LastCartSpeed;
+	bool InCollisionPause = false;
 
-    void OnTriggerEnter(Collider other) => ResetCartPosition();
+	void OnTriggerEnter(Collider other)
+	{
+		if (InCollisionPause)
+			return;
 
-    // TODO: This should be done in a different script
-    void ResetCartPosition() => CinemachineDollyCart.m_Position = 0;
+		Debug.Log($"Collided with {other.gameObject.name}!");
+		DoDelayedCartReset();		
+	}
+
+	// ToDo: This should probably be handled elsewhere
+	void DoDelayedCartReset()
+	{
+		InCollisionPause = true;
+
+		LastCartSpeed = CinemachineDollyCart.m_Speed;
+		CinemachineDollyCart.m_Speed = 0;
+		Invoke("ResetCartPositionAndSpeed", 1);
+	}
+
+	void ResetCartPositionAndSpeed()
+	{
+		InCollisionPause = false;
+
+		CinemachineDollyCart.m_Position = 0;
+		CinemachineDollyCart.m_Speed = LastCartSpeed;
+	}
 }
