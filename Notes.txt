@@ -36,6 +36,9 @@ CinemachineDollyCart:
 Reverse:
   We'll need to *disable* PlayerMovement and dolly camera track movement while the Reverse script is going
   (We should have a script called Reverse, that's cool)
+  TODO:
+    We need to move not just the Player (Model), but it's parent including the camera
+    This may be tricky since the Model and Player rotate differently (Model rotates a bit more I think)
 
 
 ----Intellisense for VS Code Unity:
