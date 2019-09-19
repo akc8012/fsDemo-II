@@ -17,6 +17,9 @@ public class MovementReversePlayback : MonoBehaviour
 	[SerializeField]
 	float WaitInterval = 0.1f;
 
+	[SerializeField]
+	bool ShouldLog = true;
+
 	void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Space))
@@ -39,12 +42,14 @@ public class MovementReversePlayback : MonoBehaviour
 			TargetTransform.position = movement.Position;
 			TargetTransform.rotation = movement.Rotation;
 
-			Debug.Log(movement.Position);
+			if (ShouldLog)
+				Debug.Log(movement.Position);
 
 			yield return new WaitForSeconds(WaitInterval);
 		}
 
-		Debug.Log("Done");
+		if (ShouldLog)
+			Debug.Log("Done");
 
 		// when we enter this point: welcome to undefined behavior land!
 		// foreach (var script in ScriptsToDisable)

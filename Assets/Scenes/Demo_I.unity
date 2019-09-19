@@ -20774,7 +20774,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 4e-45}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -39008,6 +39008,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetTransform: {fileID: 954956294}
   WaitInterval: 0.0025
+  ShouldLog: 0
 --- !u!4 &1317505858
 Transform:
   m_ObjectHideFlags: 0
@@ -39041,6 +39042,7 @@ MonoBehaviour:
   - {fileID: 959202326}
   - {fileID: 1317505857}
   WaitInterval: 0.0025
+  ShouldLog: 0
 --- !u!43 &1323870909
 Mesh:
   m_ObjectHideFlags: 0

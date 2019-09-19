@@ -11,6 +11,9 @@ public class MovementRecorder : MonoBehaviour
 	[SerializeField]
 	float WaitInterval = 0.1f;
 
+	[SerializeField]
+	bool ShouldLog = true;
+
 	// ToDo: public bad
 	public MovementStack MovementStack = new MovementStack();
 
@@ -30,6 +33,9 @@ public class MovementRecorder : MonoBehaviour
 	// ToDo: We should be printing to a file or something
 	void PrintStack()
 	{
+		if (!ShouldLog)
+			return;
+
 		var log = new StringBuilder();
 		foreach (var movement in MovementStack.GetStack())
 		{
