@@ -60,3 +60,29 @@ Reverse:
       Don't think this is breaking anymore? Need another build...
 
 
+
+
+
+
+
+
+
+
+
+
+How rotation works:
+  'GameplayPlane' only follows rotation of dolly
+    'Player' follows dolly, as well as player controls, *except* Z-rotation (roll)
+      'Model' follows dolly, player controls, and Z roll
+
+  Position is even more weird
+  Need some way to move ONLY:
+    Model
+    Camera
+  As that's all that matters
+  We can (probably should) record / playback each *independently*
+    If we diable all required scripts, this should work just fine.
+
+
+
+
