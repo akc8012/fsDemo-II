@@ -22,7 +22,7 @@ public class MovementReversePlayback : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.R))
 			StartCoroutine(PlaybackReversed());
 	}
 
