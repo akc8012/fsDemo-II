@@ -5,14 +5,10 @@ using UnityEngine;
 public class MovementReversePlayback : MonoBehaviour
 {
 	[SerializeField]
-	Transform TargetTransform;
-
-	[SerializeField]
 	MovementRecorder MovementRecorder;
 
 	[SerializeField]
 	MonoBehaviour[] ScriptsToDisable;
-
 
 	[SerializeField]
 	float WaitInterval = 0.1f;
@@ -28,10 +24,11 @@ public class MovementReversePlayback : MonoBehaviour
 
 	IEnumerator PlaybackReversed()
 	{
+		// ToDo: Extract this logic to a script - ScriptToggler
 		foreach (var script in ScriptsToDisable)
 		{
 			script.enabled = false;
-			script.StopAllCoroutines();
+			script.StopAllCoroutines(); // ToDo: Coroutines have to restart - It breaks stuff!! (MovementRecorder)
 		}
 
 		var stack = MovementRecorder.MovementStack.GetStack();
@@ -39,8 +36,8 @@ public class MovementReversePlayback : MonoBehaviour
 		{
 			var movement = stack.Pop();
 
-			TargetTransform.position = movement.Position;
-			TargetTransform.rotation = movement.Rotation;
+			transform.position = movement.Position;
+			transform.rotation = movement.Rotation;
 
 			if (ShouldLog)
 				Debug.Log(movement.Position);

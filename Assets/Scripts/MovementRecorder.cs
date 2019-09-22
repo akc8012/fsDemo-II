@@ -6,9 +6,6 @@ using UnityEngine;
 public class MovementRecorder : MonoBehaviour
 {
 	[SerializeField]
-	Transform TargetTransform;
-
-	[SerializeField]
 	float WaitInterval = 0.1f;
 
 	[SerializeField]
@@ -23,7 +20,7 @@ public class MovementRecorder : MonoBehaviour
 	{
 		while (true)
 		{
-			MovementStack.Push(new Movement { Position = TargetTransform.position, Rotation = TargetTransform.rotation });
+			MovementStack.Push(new Movement { Position = transform.position, Rotation = transform.rotation });
 			PrintStack();
 
 			yield return new WaitForSeconds(WaitInterval);
