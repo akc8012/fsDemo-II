@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(MovementRecorder))]
 public class MovementReversePlayback : MonoBehaviour
 {
-	MovementRecorder MovementRecorder;
+	MovementRecorder Recorder;
 
 	[SerializeField]
 	MonoBehaviour[] ScriptsToDisable;
@@ -15,14 +15,18 @@ public class MovementReversePlayback : MonoBehaviour
 	[SerializeField]
 	bool ShouldLog = true;
 
-	void Awake() => MovementRecorder = GetComponent<MovementRecorder>();
+	void Start()
+	{
+		Recorder = GetComponent<MovementRecorder>();
+		Recorder.On();
+	}
 
 	void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.R))
 		{
 			if (ShouldLog)
-				MovementRecorder.PrintStack();
+				Debug.Log("Got key R");
 
 			StartCoroutine(PlaybackReversed());
 		}
@@ -30,16 +34,11 @@ public class MovementReversePlayback : MonoBehaviour
 
 	IEnumerator PlaybackReversed()
 	{
-		// ToDo: Extract this logic to a script - ScriptToggler - Should listen to event
-		foreach (var script in ScriptsToDisable)
-		{
-			script.enabled = false;
-			script.StopAllCoroutines(); // ToDo: Coroutines have to restart - It breaks stuff!! (MovementRecorder)
-		}
+		PreparePlaybackReverse();
 
-		while (MovementRecorder.MovementStack.Count != 0)
+		while (Recorder.MovementStack.Count != 0)
 		{
-			var movement = MovementRecorder.MovementStack.Pop();
+			var movement = Recorder.MovementStack.Pop();
 			transform.SetPositionAndRotation(movement.Position, movement.Rotation);
 
 			if (ShouldLog)
@@ -48,11 +47,31 @@ public class MovementReversePlayback : MonoBehaviour
 			yield return new WaitForSeconds(WaitInterval);
 		}
 
+		FinishPlaybackReversed();
+		// Undefined behavior land!!
+	}
+
+	void PreparePlaybackReverse()
+	{
+		Recorder.Off();
+		// ToDo: Extract this logic to a script - ScriptToggler - Should listen to event
+		foreach (var script in ScriptsToDisable)
+			script.enabled = false;
+
+		if (ShouldLog)
+		{
+			Debug.Log("Recorder off, here's my stack:");
+			Recorder.PrintStack();
+		}
+	}
+
+	void FinishPlaybackReversed()
+	{
 		if (ShouldLog)
 			Debug.Log("Done");
 
-		// when we enter this point: welcome to undefined behavior land!
-		// foreach (var script in ScriptsToDisable)
-		// 	script.enabled = true;
+		Recorder.On();
+		foreach (var script in ScriptsToDisable)
+			script.enabled = true;
 	}
 }

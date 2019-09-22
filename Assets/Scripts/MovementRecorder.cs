@@ -10,10 +10,11 @@ public class MovementRecorder : MonoBehaviour
 	[SerializeField]
 	bool ShouldLog = true;
 
-	// ToDo: public bad
-	public MovementStack MovementStack = new MovementStack();
+    public MovementStack MovementStack { get; private set; } = new MovementStack();
 
-	void Start() => StartCoroutine(RecordMovement());
+    public void On() => StartCoroutine(RecordMovement());
+
+	public void Off() => StopAllCoroutines();
 
 	IEnumerator RecordMovement()
 	{

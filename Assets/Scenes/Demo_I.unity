@@ -19766,7 +19766,6 @@ MonoBehaviour:
   ScriptsToDisable:
   - {fileID: 659116459}
   - {fileID: 659116461}
-  - {fileID: 659116464}
   WaitInterval: 0.0025
   ShouldLog: 0
 --- !u!114 &659116464
@@ -35272,7 +35271,6 @@ MonoBehaviour:
   ScriptsToDisable:
   - {fileID: 361593942}
   - {fileID: 959202326}
-  - {fileID: 954956296}
   WaitInterval: 0.0025
   ShouldLog: 0
 --- !u!114 &954956296
