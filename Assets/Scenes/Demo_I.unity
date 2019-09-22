@@ -11459,7 +11459,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 457426552}
   m_LocalRotation: {x: -0, y: -0.6700738, z: -0, w: 0.74229455}
-  m_LocalPosition: {x: -6.0235653, y: -10.19, z: 62.975525}
+  m_LocalPosition: {x: -6.0235653, y: -13.7, z: 62.975525}
   m_LocalScale: {x: 3.3061, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 912646693}
@@ -19620,6 +19620,8 @@ GameObject:
   - component: {fileID: 659116459}
   - component: {fileID: 659116462}
   - component: {fileID: 659116461}
+  - component: {fileID: 659116464}
+  - component: {fileID: 659116463}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -19749,6 +19751,38 @@ MonoBehaviour:
     m_DirectionMode: 0
     m_DissipationMode: 2
     m_DissipationDistance: 1000
+--- !u!114 &659116463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659116457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47b5ca9dbd3192668b0b6102762cd628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScriptsToDisable:
+  - {fileID: 659116459}
+  - {fileID: 659116461}
+  - {fileID: 659116464}
+  WaitInterval: 0.0025
+  ShouldLog: 0
+--- !u!114 &659116464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659116457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 758b25925bd49535eaa9d87cc7ba22d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaitInterval: 0.0025
+  ShouldLog: 0
 --- !u!1 &663051005
 GameObject:
   m_ObjectHideFlags: 0
@@ -35235,7 +35269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b5ca9dbd3192668b0b6102762cd628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementRecorder: {fileID: 954956296}
   ScriptsToDisable:
   - {fileID: 361593942}
   - {fileID: 959202326}

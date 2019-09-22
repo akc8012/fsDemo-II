@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
@@ -14,30 +13,30 @@ public class MovementRecorder : MonoBehaviour
 	// ToDo: public bad
 	public MovementStack MovementStack = new MovementStack();
 
-	void Awake() => StartCoroutine(RecordMovement());
+	void Start() => StartCoroutine(RecordMovement());
 
 	IEnumerator RecordMovement()
 	{
 		while (true)
 		{
+			// ToDo: Position needs to be global / or something
 			MovementStack.Push(new Movement { Position = transform.position, Rotation = transform.rotation });
-			PrintStack();
+
+			if (ShouldLog)
+				PrintStack();
 
 			yield return new WaitForSeconds(WaitInterval);
 		}
 	}
 
 	// ToDo: We should be printing to a file or something
-	void PrintStack()
+	public void PrintStack()
 	{
-		if (!ShouldLog)
-			return;
-
 		var log = new StringBuilder();
 		foreach (var movement in MovementStack.GetStack())
 		{
 			if (log.Length != 0)
-				log.Append(", ");
+				log.Append("\n");
 
 			log.Append(movement.Position);
 		}

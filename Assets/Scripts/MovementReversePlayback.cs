@@ -1,10 +1,9 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(MovementRecorder))]
 public class MovementReversePlayback : MonoBehaviour
 {
-	[SerializeField]
 	MovementRecorder MovementRecorder;
 
 	[SerializeField]
@@ -16,28 +15,32 @@ public class MovementReversePlayback : MonoBehaviour
 	[SerializeField]
 	bool ShouldLog = true;
 
+	void Awake() => MovementRecorder = GetComponent<MovementRecorder>();
+
 	void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.R))
+		{
+			if (ShouldLog)
+				MovementRecorder.PrintStack();
+
 			StartCoroutine(PlaybackReversed());
+		}
 	}
 
 	IEnumerator PlaybackReversed()
 	{
-		// ToDo: Extract this logic to a script - ScriptToggler
+		// ToDo: Extract this logic to a script - ScriptToggler - Should listen to event
 		foreach (var script in ScriptsToDisable)
 		{
 			script.enabled = false;
 			script.StopAllCoroutines(); // ToDo: Coroutines have to restart - It breaks stuff!! (MovementRecorder)
 		}
 
-		var stack = MovementRecorder.MovementStack.GetStack();
-		while (stack.Count != 0)
+		while (MovementRecorder.MovementStack.Count != 0)
 		{
-			var movement = stack.Pop();
-
-			transform.position = movement.Position;
-			transform.rotation = movement.Rotation;
+			var movement = MovementRecorder.MovementStack.Pop();
+			transform.SetPositionAndRotation(movement.Position, movement.Rotation);
 
 			if (ShouldLog)
 				Debug.Log(movement.Position);
