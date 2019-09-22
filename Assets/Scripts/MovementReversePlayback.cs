@@ -4,10 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(MovementRecorder))]
 public class MovementReversePlayback : MonoBehaviour
 {
-	MovementRecorder Recorder;
+	public static event MovementPlaybackDispatcher.Event MovementReverseFinish;
 
-	[SerializeField]
-	MonoBehaviour[] ScriptsToDisable;
+	MovementRecorder Recorder;
 
 	[SerializeField]
 	float WaitInterval = 0.1f;
@@ -15,27 +14,14 @@ public class MovementReversePlayback : MonoBehaviour
 	[SerializeField]
 	bool ShouldLog = true;
 
-	void Start()
+	void Awake()
 	{
 		Recorder = GetComponent<MovementRecorder>();
-		Recorder.On();
-	}
-
-	void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.R))
-		{
-			if (ShouldLog)
-				Debug.Log("Got key R");
-
-			StartCoroutine(PlaybackReversed());
-		}
+		MovementPlaybackDispatcher.MovementReverseStart += () => StartCoroutine(PlaybackReversed());
 	}
 
 	IEnumerator PlaybackReversed()
 	{
-		PreparePlaybackReverse();
-
 		while (Recorder.MovementStack.Count != 0)
 		{
 			var movement = Recorder.MovementStack.Pop();
@@ -47,31 +33,7 @@ public class MovementReversePlayback : MonoBehaviour
 			yield return new WaitForSeconds(WaitInterval);
 		}
 
-		FinishPlaybackReversed();
-		// Undefined behavior land!!
-	}
-
-	void PreparePlaybackReverse()
-	{
-		Recorder.Off();
-		// ToDo: Extract this logic to a script - ScriptToggler - Should listen to event
-		foreach (var script in ScriptsToDisable)
-			script.enabled = false;
-
-		if (ShouldLog)
-		{
-			Debug.Log("Recorder off, here's my stack:");
-			Recorder.PrintStack();
-		}
-	}
-
-	void FinishPlaybackReversed()
-	{
-		if (ShouldLog)
-			Debug.Log("Done");
-
-		Recorder.On();
-		foreach (var script in ScriptsToDisable)
-			script.enabled = true;
+		MovementReverseFinish();
+		Debug.Log("Done. Entering Undefined Behavior Land");
 	}
 }

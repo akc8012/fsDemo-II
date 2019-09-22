@@ -10,11 +10,15 @@ public class MovementRecorder : MonoBehaviour
 	[SerializeField]
 	bool ShouldLog = true;
 
-    public MovementStack MovementStack { get; private set; } = new MovementStack();
+	public MovementStack MovementStack { get; private set; } = new MovementStack();
 
-    public void On() => StartCoroutine(RecordMovement());
+	void Awake()
+	{
+		StartCoroutine(RecordMovement());
 
-	public void Off() => StopAllCoroutines();
+		MovementPlaybackDispatcher.MovementReverseStart += () => StopAllCoroutines();
+		MovementReversePlayback.MovementReverseFinish += () => StartCoroutine(RecordMovement());
+	}
 
 	IEnumerator RecordMovement()
 	{
