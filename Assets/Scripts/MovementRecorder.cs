@@ -7,9 +7,6 @@ public class MovementRecorder : MonoBehaviour
 	[SerializeField]
 	float WaitInterval = 0.1f;
 
-	[SerializeField]
-	bool ShouldLog = true;
-
     public MovementStack MovementStack { get; private set; } = new MovementStack();
 
     public void On() => StartCoroutine(RecordMovement());
@@ -20,12 +17,7 @@ public class MovementRecorder : MonoBehaviour
 	{
 		while (true)
 		{
-			// ToDo: Position needs to be global / or something
 			MovementStack.Push(new Movement { Position = transform.position, Rotation = transform.rotation });
-
-			if (ShouldLog)
-				PrintStack();
-
 			yield return new WaitForSeconds(WaitInterval);
 		}
 	}

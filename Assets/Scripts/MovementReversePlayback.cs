@@ -12,9 +12,6 @@ public class MovementReversePlayback : MonoBehaviour
 	[SerializeField]
 	float WaitInterval = 0.1f;
 
-	[SerializeField]
-	bool ShouldLog = true;
-
 	void Start()
 	{
 		Recorder = GetComponent<MovementRecorder>();
@@ -24,12 +21,7 @@ public class MovementReversePlayback : MonoBehaviour
 	void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.R))
-		{
-			if (ShouldLog)
-				Debug.Log("Got key R");
-
 			StartCoroutine(PlaybackReversed());
-		}
 	}
 
 	IEnumerator PlaybackReversed()
@@ -40,9 +32,6 @@ public class MovementReversePlayback : MonoBehaviour
 		{
 			var movement = Recorder.MovementStack.Pop();
 			transform.SetPositionAndRotation(movement.Position, movement.Rotation);
-
-			if (ShouldLog)
-				Debug.Log(movement.Position);
 
 			yield return new WaitForSeconds(WaitInterval);
 		}
@@ -58,20 +47,15 @@ public class MovementReversePlayback : MonoBehaviour
 		foreach (var script in ScriptsToDisable)
 			script.enabled = false;
 
-		if (ShouldLog)
-		{
-			Debug.Log("Recorder off, here's my stack:");
-			Recorder.PrintStack();
-		}
+		Debug.Log($"{name} start reverse.");
 	}
 
 	void FinishPlaybackReversed()
 	{
-		if (ShouldLog)
-			Debug.Log("Done");
-
 		Recorder.On();
 		foreach (var script in ScriptsToDisable)
 			script.enabled = true;
+
+		Debug.Log($"{name} done reverse.");
 	}
 }
