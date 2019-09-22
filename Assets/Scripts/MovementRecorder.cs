@@ -24,7 +24,6 @@ public class MovementRecorder : MonoBehaviour
 	{
 		while (true)
 		{
-			// ToDo: Position needs to be global / or something
 			MovementStack.Push(new Movement { Position = transform.position, Rotation = transform.rotation });
 
 			if (ShouldLog)

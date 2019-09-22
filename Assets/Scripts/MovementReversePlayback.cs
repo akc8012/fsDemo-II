@@ -34,6 +34,6 @@ public class MovementReversePlayback : MonoBehaviour
 		}
 
 		MovementReverseFinish();
-		Debug.Log("Done. Entering Undefined Behavior Land");
+		Debug.Log($"{this.name} done. Entering Undefined Behavior Land");
 	}
 }
