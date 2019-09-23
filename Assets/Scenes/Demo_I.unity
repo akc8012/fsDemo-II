@@ -5433,6 +5433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 361593941}
   - component: {fileID: 361593942}
+  - component: {fileID: 361593943}
   m_Layer: 0
   m_Name: GameplayPlane
   m_TagString: Untagged
@@ -5473,8 +5474,21 @@ MonoBehaviour:
   m_Path: {fileID: 1389147488}
   m_UpdateMethod: 0
   m_PositionUnits: 1
-  m_Speed: 6
+  m_Speed: 12
   m_Position: 0
+--- !u!114 &361593943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361593940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a96849d8a26821ecbaeccb839ea1be5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CinemachineDollyCart: {fileID: 361593942}
 --- !u!1 &388635786
 GameObject:
   m_ObjectHideFlags: 0
@@ -19767,7 +19781,7 @@ MonoBehaviour:
   - {fileID: 659116459}
   - {fileID: 659116461}
   WaitInterval: 0.0025
-  ShouldLog: 0
+  ShouldResetMovements: 0
 --- !u!114 &659116464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19781,7 +19795,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitInterval: 0.0025
-  ShouldLog: 0
 --- !u!1 &663051005
 GameObject:
   m_ObjectHideFlags: 0
@@ -20807,8 +20820,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.232528e+21, y: 2.6778157e+20, z: 1.6927029e+22,
-    w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 2.75506e-40, z: -1.14e-42, w: -1.49e-43}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -35272,7 +35284,7 @@ MonoBehaviour:
   - {fileID: 361593942}
   - {fileID: 959202326}
   WaitInterval: 0.0025
-  ShouldLog: 0
+  ShouldResetMovements: 1
 --- !u!114 &954956296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35286,7 +35298,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitInterval: 0.0025
-  ShouldLog: 0
 --- !u!1 &959202324
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,10 @@ public class MovementReversePlayback : MonoBehaviour
 	[SerializeField]
 	float WaitInterval = 0.1f;
 
+	// Do this (absolute trash code) to make sure we're not calling MovementReseter twice
+	[SerializeField]
+	bool ShouldResetMovements = false;
+
 	void Start()
 	{
 		Recorder = GetComponent<MovementRecorder>();
@@ -37,17 +41,14 @@ public class MovementReversePlayback : MonoBehaviour
 		}
 
 		FinishPlaybackReversed();
-		// Undefined behavior land!!
 	}
 
+	// ToDo: Extract this logic to a script - ScriptToggler - Should listen to event
 	void PreparePlaybackReverse()
 	{
 		Recorder.Off();
-		// ToDo: Extract this logic to a script - ScriptToggler - Should listen to event
 		foreach (var script in ScriptsToDisable)
 			script.enabled = false;
-
-		Debug.Log($"{name} start reverse.");
 	}
 
 	void FinishPlaybackReversed()
@@ -56,6 +57,7 @@ public class MovementReversePlayback : MonoBehaviour
 		foreach (var script in ScriptsToDisable)
 			script.enabled = true;
 
-		Debug.Log($"{name} done reverse.");
+		if (ShouldResetMovements)
+			GameObject.Find("GameplayPlane").GetComponent<MovementReseter>().Load();
 	}
 }
