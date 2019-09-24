@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
@@ -19,7 +20,7 @@ public class PlayerCollider : MonoBehaviour
 		if (InCollisionPause)
 			return;
 
-		Debug.Log($"Collided with {other.gameObject.name}!");
+		// Debug.Log($"Collided with {other.gameObject.name}!");
 		DoDelayedCartReset();
 	}
 
@@ -31,15 +32,16 @@ public class PlayerCollider : MonoBehaviour
 		LastCartSpeed = CinemachineDollyCart.m_Speed;
 		CinemachineDollyCart.m_Speed = 0;
 		PlayerMovement.enabled = false;
-		Invoke("ResetCartPositionAndSpeed", 1);
+		Invoke("ResetCartPositionAndSpeed", time: 0.75f);
 	}
 
 	void ResetCartPositionAndSpeed()
 	{
-		InCollisionPause = false;
+		MovementReverseNotifier.Go();
 
-		CinemachineDollyCart.m_Position = 0;
-		CinemachineDollyCart.m_Speed = LastCartSpeed;
-		PlayerMovement.enabled = true;
+		// ToDo: THIS IS SO VERY BAD, FIX THIS!!!!!!!!!!!!
+		Invoke("TurnOffInCollisionPause", 0.25f);
 	}
+
+	void TurnOffInCollisionPause() => InCollisionPause = false;
 }

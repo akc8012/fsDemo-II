@@ -16,16 +16,12 @@ public class MovementReversePlayback : MonoBehaviour
 	[SerializeField]
 	bool ShouldResetMovements = false;
 
-	void Start()
+	void Awake()
 	{
 		Recorder = GetComponent<MovementRecorder>();
 		Recorder.On();
-	}
 
-	void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.R))
-			StartCoroutine(PlaybackReversed());
+		MovementReverseNotifier.StartMovementReverse += () => StartCoroutine(PlaybackReversed());
 	}
 
 	IEnumerator PlaybackReversed()
@@ -37,6 +33,7 @@ public class MovementReversePlayback : MonoBehaviour
 			var movement = Recorder.MovementStack.Pop();
 			transform.SetPositionAndRotation(movement.Position, movement.Rotation);
 
+			// ToDo: Control the timing via a dank-ass time spline thing
 			yield return new WaitForSeconds(WaitInterval);
 		}
 
