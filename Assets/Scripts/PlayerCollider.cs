@@ -10,7 +10,7 @@ public class PlayerCollider : MonoBehaviour
 	CinemachineDollyCart CinemachineDollyCart;
 	
 	[SerializeField]
-	PlayerMovement PlayerMovement;
+	Legacy.PlayerMovement PlayerMovement;
 	
 	float LastCartSpeed;
 	bool InCollisionPause = false;
