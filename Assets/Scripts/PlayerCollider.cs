@@ -37,7 +37,7 @@ public class PlayerCollider : MonoBehaviour
 
 	void ResetCartPositionAndSpeed()
 	{
-		MovementReverseNotifier.Go();
+		Movement.MovementReverseNotifier.Go();
 
 		// ToDo: THIS IS SO VERY BAD, FIX THIS!!!!!!!!!!!!
 		Invoke("TurnOffInCollisionPause", 0.25f);
