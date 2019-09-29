@@ -5,7 +5,7 @@ namespace Movement
 {
 	[RequireComponent(typeof(MovementRecorder))]
 	[RequireComponent(typeof(ScriptToggler))]
-	public class MovementReversePlayback : MonoBehaviour
+	public class MovementPlayback : MonoBehaviour
 	{
 		MovementRecorder Recorder;
 		ScriptToggler ScriptToggler;

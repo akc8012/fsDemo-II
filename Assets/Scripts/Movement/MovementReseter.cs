@@ -24,7 +24,7 @@ namespace Movement
 		// ToDo: Fix this? Leave this to Start - There may be fucky wucki-ness with speed of CinemachineDollyCart
 		void Start() => Save();
 
-		public void Save()
+		void Save()
 		{
 			Movements.Clear();
 

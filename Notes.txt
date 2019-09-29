@@ -67,6 +67,7 @@ TODO:
     MovementReversePlayback's WaitInterval needs to have *one* source of truth
     Fix TODOs in the horrible abomination that is PlayerCollider
     Fix MovementReseter fucky wucki-ness with Start() (speed of CinemachineDollyCart)
+    Class renaming (Movement class itself is unclear, it's just a Transform)
 
 
   ----Intellisense for VS Code Unity:
