@@ -23,7 +23,7 @@ namespace Movement
 			Recorder.On();
 
 			ScriptToggler = GetComponent<ScriptToggler>();
-			MovementEvents.StartMovementReverse += () => StartCoroutine(PlaybackReversed());
+			MovementEventOrchestrator.StartReversePlaybackEvent += () => StartCoroutine(PlaybackReversed());
 		}
 
 		IEnumerator PlaybackReversed()

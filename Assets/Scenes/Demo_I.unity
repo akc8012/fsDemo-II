@@ -7439,7 +7439,7 @@ GameObject:
   - component: {fileID: 487859695}
   - component: {fileID: 487859694}
   m_Layer: 0
-  m_Name: MovementEvents
+  m_Name: MovementEventOrchestrator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10805,7 +10805,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 5.3e-44, y: 4.594e-41, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 4.5449757e+30, y: 0, z: 0, w: NaN}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0

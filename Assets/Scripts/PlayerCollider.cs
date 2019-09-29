@@ -34,7 +34,7 @@ public class PlayerCollider : MonoBehaviour
 				break;
 
 			case "Checkpoint":
-				Movement.MovementEvents.DoWipeRecordedMovements();
+				Movement.MovementEventOrchestrator.WipeRecordedMovements();
 				other.gameObject.SetActive(false);	// this is shit, but we can kill the checkpoint after use
 				break;
 		}
@@ -53,7 +53,7 @@ public class PlayerCollider : MonoBehaviour
 
 	void ResetCartPositionAndSpeed()
 	{
-		Movement.MovementEvents.Go();
+		Movement.MovementEventOrchestrator.StartReversePlayback();
 
 		// ToDo: THIS IS SO VERY BAD, FIX THIS!!!!!!!!!!!!
 		Invoke("TurnOffInCollisionPause", 0.25f);

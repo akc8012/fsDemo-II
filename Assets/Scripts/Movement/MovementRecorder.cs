@@ -11,7 +11,7 @@ namespace Movement
 
 		public MovementStack MovementStack { get; private set; } = new MovementStack();
 
-		void Awake() => MovementEvents.WipeRecordedMovements += Wipe;
+		void Awake() => MovementEventOrchestrator.WipeRecordedMovementsEvent += Wipe;
 
 		public void On() => StartCoroutine(RecordMovement());
 

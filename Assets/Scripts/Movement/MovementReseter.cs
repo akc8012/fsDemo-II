@@ -18,7 +18,7 @@ namespace Movement
 		void Awake()
 		{
 			CinemachineDollyCart = GetComponent<CinemachineDollyCart>();
-			MovementEvents.WipeRecordedMovements += Save;
+			MovementEventOrchestrator.WipeRecordedMovementsEvent += Save;
 		}
 
 		// ToDo: Fix this? Leave this to Start - There may be fucky wucki-ness with speed of CinemachineDollyCart
