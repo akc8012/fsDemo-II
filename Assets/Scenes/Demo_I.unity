@@ -19710,6 +19710,7 @@ GameObject:
   - component: {fileID: 659116461}
   - component: {fileID: 659116464}
   - component: {fileID: 659116463}
+  - component: {fileID: 659116465}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -19851,9 +19852,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b5ca9dbd3192668b0b6102762cd628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScriptsToDisable:
-  - {fileID: 659116459}
-  - {fileID: 659116461}
   WaitInterval: 0.0025
   ShouldResetMovements: 0
 --- !u!114 &659116464
@@ -19869,6 +19867,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitInterval: 0.0025
+--- !u!114 &659116465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659116457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a8e2e6614cd4e9d5aaf985acb47fae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScriptsToDisable:
+  - {fileID: 659116459}
+  - {fileID: 659116461}
 --- !u!1 &663051005
 GameObject:
   m_ObjectHideFlags: 0
@@ -20894,7 +20907,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 6.263181e-38, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 5.3e-44, y: 4.594e-41, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -35465,6 +35478,7 @@ GameObject:
   - component: {fileID: 954956294}
   - component: {fileID: 954956296}
   - component: {fileID: 954956295}
+  - component: {fileID: 954956297}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -35504,9 +35518,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b5ca9dbd3192668b0b6102762cd628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScriptsToDisable:
-  - {fileID: 361593942}
-  - {fileID: 959202326}
   WaitInterval: 0.0025
   ShouldResetMovements: 1
 --- !u!114 &954956296
@@ -35522,6 +35533,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitInterval: 0.0025
+--- !u!114 &954956297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954956293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a8e2e6614cd4e9d5aaf985acb47fae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScriptsToDisable:
+  - {fileID: 361593942}
+  - {fileID: 959202326}
 --- !u!1 &959202324
 GameObject:
   m_ObjectHideFlags: 0
@@ -35608,8 +35634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a038ffff533a0c6859d0ea22165a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CinemachineDollyCart: {fileID: 361593942}
-  PlayerMovement: {fileID: 959202326}
 --- !u!1 &967883866
 GameObject:
   m_ObjectHideFlags: 0

@@ -60,10 +60,11 @@ TODO:
           Built into Unity now, lets not mess with it
     DOTween as new-fangled Unity package?
 
-    Fix warnings by hooking references by Find / Tag
+    ----Fix warnings by hooking references by Find / Tag
+    ----Extract ScriptToggler from MovementReversePlayback - Call it statically
     Call MovementReseter once cleanly with an Event
-    Extract ScriptToggler from MovementReversePlayback - Call it statically
     Remove the need for GetStack() in MovementStack
+    MovementReversePlayback's WaitInterval needs to have *one* source of truth
     Fix TODOs in the horrible abomination that is PlayerCollider
     Fix MovementReseter fucky wucki-ness with Start() (speed of CinemachineDollyCart)
 

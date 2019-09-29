@@ -4,12 +4,11 @@ using UnityEngine;
 namespace Movement
 {
 	[RequireComponent(typeof(MovementRecorder))]
+	[RequireComponent(typeof(ScriptToggler))]
 	public class MovementReversePlayback : MonoBehaviour
 	{
 		MovementRecorder Recorder;
-
-		[SerializeField]
-		MonoBehaviour[] ScriptsToDisable = null;
+		ScriptToggler ScriptToggler;
 
 		[SerializeField]
 		float WaitInterval = 0.1f;
@@ -23,6 +22,7 @@ namespace Movement
 			Recorder = GetComponent<MovementRecorder>();
 			Recorder.On();
 
+			ScriptToggler = GetComponent<ScriptToggler>();
 			MovementEvents.StartMovementReverse += () => StartCoroutine(PlaybackReversed());
 		}
 
@@ -46,15 +46,13 @@ namespace Movement
 		void PreparePlaybackReverse()
 		{
 			Recorder.Off();
-			foreach (var script in ScriptsToDisable)
-				script.enabled = false;
+			ScriptToggler.Off();
 		}
 
 		void FinishPlaybackReversed()
 		{
 			Recorder.On();
-			foreach (var script in ScriptsToDisable)
-				script.enabled = true;
+			ScriptToggler.On();
 
 			if (ShouldResetMovements)
 				GameObject.Find("GameplayPlane").GetComponent<MovementReseter>().Load();
