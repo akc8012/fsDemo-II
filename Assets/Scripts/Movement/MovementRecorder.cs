@@ -11,11 +11,15 @@ namespace Movement
 
 		public MovementStack MovementStack { get; private set; } = new MovementStack();
 
+		void Awake() => MovementEvents.WipeRecordedMovements += Wipe;
+
 		public void On() => StartCoroutine(RecordMovement());
 
 		public void Off() => StopAllCoroutines();
 
-		IEnumerator RecordMovement()
+        void Wipe() => MovementStack.Clear();
+
+        IEnumerator RecordMovement()
 		{
 			while (true)
 			{

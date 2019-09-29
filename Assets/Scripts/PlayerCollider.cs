@@ -8,10 +8,10 @@ public class PlayerCollider : MonoBehaviour
 {
 	[SerializeField]
 	CinemachineDollyCart CinemachineDollyCart;
-	
+
 	[SerializeField]
 	Legacy.PlayerMovement PlayerMovement;
-	
+
 	float LastCartSpeed;
 	bool InCollisionPause = false;
 
@@ -20,8 +20,17 @@ public class PlayerCollider : MonoBehaviour
 		if (InCollisionPause)
 			return;
 
-		// Debug.Log($"Collided with {other.gameObject.name}!");
-		DoDelayedCartReset();
+		switch (other.gameObject.tag)
+		{
+			case "Untagged":
+				DoDelayedCartReset();
+				break;
+
+			case "Checkpoint":
+				Movement.MovementEvents.DoWipeRecordedMovements();
+				other.gameObject.SetActive(false);	// this is shit, but we can kill the checkpoint after use
+				break;
+		}
 	}
 
 	// ToDo: This should probably be handled elsewhere
@@ -37,7 +46,7 @@ public class PlayerCollider : MonoBehaviour
 
 	void ResetCartPositionAndSpeed()
 	{
-		Movement.MovementReverseNotifier.Go();
+		Movement.MovementEvents.Go();
 
 		// ToDo: THIS IS SO VERY BAD, FIX THIS!!!!!!!!!!!!
 		Invoke("TurnOffInCollisionPause", 0.25f);

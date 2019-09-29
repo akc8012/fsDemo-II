@@ -23,7 +23,7 @@ namespace Movement
 			Recorder = GetComponent<MovementRecorder>();
 			Recorder.On();
 
-			MovementReverseNotifier.StartMovementReverse += () => StartCoroutine(PlaybackReversed());
+			MovementEvents.StartMovementReverse += () => StartCoroutine(PlaybackReversed());
 		}
 
 		IEnumerator PlaybackReversed()

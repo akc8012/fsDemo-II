@@ -14,11 +14,15 @@ namespace Movement
 		float LastCartSpeed;
 		float LastCartPosition;
 
+		void Awake() => MovementEvents.WipeRecordedMovements += Save;
+
 		// Leave this to Start - There may be fucky wucki-ness with speed of CinemachineDollyCart
 		void Start() => Save();
 
 		public void Save()
 		{
+			Movements.Clear();
+
 			foreach (var transform in transform.GetComponentsInChildren<Transform>())
 				Movements.Add(new Movement { Position = transform.position, Rotation = transform.rotation });
 

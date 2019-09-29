@@ -13,6 +13,8 @@ namespace Movement
 
 		public Movement Pop() => Stack.Pop();
 
+		public void Clear() => Stack.Clear();
+
 		// ToDo: THIS IS BAD, MAKE IT INHERIT IENUMBERABLE INSTEAD !!!!!
 		public Stack<Movement> GetStack() => Stack;
 	}
