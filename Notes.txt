@@ -60,6 +60,13 @@ TODO:
           Built into Unity now, lets not mess with it
     DOTween as new-fangled Unity package?
 
+    Fix warnings by hooking references by Find / Tag
+    Call MovementReseter once cleanly with an Event
+    Extract ScriptToggler from MovementReversePlayback - Call it statically
+    Remove the need for GetStack() in MovementStack
+    Fix TODOs in the horrible abomination that is PlayerCollider
+
+
   ----Intellisense for VS Code Unity:
     GOTTEM!
     I didn't have mono installed, and you can't use flatpak app with VS Code
