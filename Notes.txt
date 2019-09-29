@@ -65,6 +65,7 @@ TODO:
     Extract ScriptToggler from MovementReversePlayback - Call it statically
     Remove the need for GetStack() in MovementStack
     Fix TODOs in the horrible abomination that is PlayerCollider
+    Fix MovementReseter fucky wucki-ness with Start() (speed of CinemachineDollyCart)
 
 
   ----Intellisense for VS Code Unity:

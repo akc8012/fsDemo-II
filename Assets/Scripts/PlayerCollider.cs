@@ -4,16 +4,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+[RequireComponent(typeof(Legacy.PlayerMovement))]
 public class PlayerCollider : MonoBehaviour
 {
-	[SerializeField]
 	CinemachineDollyCart CinemachineDollyCart;
-
-	[SerializeField]
 	Legacy.PlayerMovement PlayerMovement;
 
 	float LastCartSpeed;
 	bool InCollisionPause = false;
+
+	void Awake()
+	{
+		PlayerMovement = GetComponent<Legacy.PlayerMovement>();
+		CinemachineDollyCart = transform.root.GetComponent<CinemachineDollyCart>();
+
+		if (CinemachineDollyCart == null)
+			Debug.LogError("Could not find CinemachineDollyCart on root parent");
+	}
 
 	void OnTriggerEnter(Collider other)
 	{

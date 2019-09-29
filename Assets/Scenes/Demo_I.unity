@@ -20894,7 +20894,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 2.2e-42, y: 1.02e-43, z: 4.5743e-41, w: 0}
+  m_BoundingSphereOverride: {x: 6.263181e-38, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -34660,7 +34660,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 916416671}
-  - component: {fileID: 916416672}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -34685,20 +34684,6 @@ Transform:
   m_Father: {fileID: 954956294}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &916416672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916416670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5a038ffff533a0c6859d0ea22165a39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CinemachineDollyCart: {fileID: 361593942}
-  PlayerMovement: {fileID: 0}
 --- !u!43 &922765601
 Mesh:
   m_ObjectHideFlags: 0

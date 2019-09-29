@@ -5,6 +5,7 @@ using Cinemachine;
 
 namespace Movement
 {
+	[RequireComponent(typeof(CinemachineDollyCart))]
 	public class MovementReseter : MonoBehaviour
 	{
 		[SerializeField]
@@ -14,9 +15,13 @@ namespace Movement
 		float LastCartSpeed;
 		float LastCartPosition;
 
-		void Awake() => MovementEvents.WipeRecordedMovements += Save;
+		void Awake()
+		{
+			CinemachineDollyCart = GetComponent<CinemachineDollyCart>();
+			MovementEvents.WipeRecordedMovements += Save;
+		}
 
-		// Leave this to Start - There may be fucky wucki-ness with speed of CinemachineDollyCart
+		// ToDo: Fix this? Leave this to Start - There may be fucky wucki-ness with speed of CinemachineDollyCart
 		void Start() => Save();
 
 		public void Save()

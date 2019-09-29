@@ -9,7 +9,7 @@ namespace Movement
 		MovementRecorder Recorder;
 
 		[SerializeField]
-		MonoBehaviour[] ScriptsToDisable;
+		MonoBehaviour[] ScriptsToDisable = null;
 
 		[SerializeField]
 		float WaitInterval = 0.1f;
