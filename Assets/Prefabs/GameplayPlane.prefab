@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 4794173634105008852}
   - component: {fileID: 4794173634105008841}
   - component: {fileID: 4794173634105008854}
-  - component: {fileID: 4794173634105008840}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -171,22 +170,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitInterval: 0.0025
-  ShouldResetMovements: 0
---- !u!114 &4794173634105008840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4794173634105008848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a8e2e6614cd4e9d5aaf985acb47fae6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScriptsToDisable:
-  - {fileID: 4794173634105008850}
-  - {fileID: 4794173634105008852}
 --- !u!1 &4794173634347284817
 GameObject:
   m_ObjectHideFlags: 0
@@ -10110,7 +10093,6 @@ GameObject:
   - component: {fileID: 4794173634501233023}
   - component: {fileID: 4794173634501233009}
   - component: {fileID: 4794173634501233022}
-  - component: {fileID: 4794173634501233008}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -10164,22 +10146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitInterval: 0.0025
-  ShouldResetMovements: 1
---- !u!114 &4794173634501233008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4794173634501233020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a8e2e6614cd4e9d5aaf985acb47fae6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScriptsToDisable:
-  - {fileID: 4794173634947796783}
-  - {fileID: 4794173634471688047}
 --- !u!1 &4794173634521111323
 GameObject:
   m_ObjectHideFlags: 0
@@ -15218,7 +15184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a96849d8a26821ecbaeccb839ea1be5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CinemachineDollyCart: {fileID: 4794173634947796783}
 --- !u!1 &4794173635045677020
 GameObject:
   m_ObjectHideFlags: 0
