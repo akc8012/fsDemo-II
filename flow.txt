@@ -1,0 +1,60 @@
+
+Current:
+  0. Ship is flying
+        MovementReversePlayback -> Recorder.On()
+
+  1. Ship gets WHACKED
+        PlayerCollider -> OnTriggerEnter()
+
+  2. Ship pauses
+        PlayerCollider -> DoDelayedCartReset()
+
+  3. Ship reverses back to checkpoint
+        PlayerCollider -> Movement.MovementEvents.Go() -> StartMovementReverse() -> MovementReversePlayback.PlaybackReversed()
+
+  4. Ship resumes flying
+        MovementReversePlayback -> ScriptToggler.On() + Recorder.On() + [if ShouldResetMovements:] MovementReseter.Load()
+
+Desired:
+  0. Ship is flying
+        MovementPlayback -> Recorder.On()
+
+  1. Ship gets WHACKED
+        PlayerCollider -> OnTriggerEnter()
+
+  2. Ship pauses
+        PlayerCollider -> MovementEvents.StartReversePlayback() -> MovementPlaybackOrchestrator.Playback() [event sent to all] -> MovementPlayback.PauseShip()
+
+  3. Ship reverses back to checkpoint
+        MovementPlayback -> PlaybackReversed() -> PlaybackFinished [event, recieved by orchestrator]
+
+  4. Ship resumes flying
+        MovementPlayback -> ScriptToggler.On() + Recorder.On() + [PlaybackFinished: when ALL are recieved] MovementPlaybackOrchestrator.Finished -> MovementReseter.Load()
+
+
+
+We need:
+  MovementPlaybackOrchestrator single + static
+  MovementPlayback on each like now
+
+
+Events:
+  PlayerCollider.OnTriggerEnter ->
+    MovementEvents.StartReversePlayback() ->
+      MovementPlaybackOrchestrator.Playback() ->
+        [Model]  MovementPlayback.PauseShip() -> MovementPlayback.PlaybackReversed() -> MovementEvents.PlaybackFinished()
+        [Camera] MovementPlayback.PauseShip() -> MovementPlayback.PlaybackReversed() -> MovementEvents.PlaybackFinished()
+          MovementPlaybackOrchestrator.Finished() [called when ALL playback finished are recieved] ->
+            MovementPlayback -> ScriptToggler.On() + Recorder.On()
+            MovementReseter.Load()
+
+  Might not need the Orchestrator: Try doing all of this just in MovementEvents?
+
+  PlayerCollider.OnTriggerEnter ->
+    MovementEventOrchestrator.StartReversePlayback() ->
+      [Model]  MovementPlayback.Pause() -> MovementPlayback.PlaybackReversed() -> MovementEventOrchestrator.PlaybackFinished()
+      [Camera] MovementPlayback.Pause() -> MovementPlayback.PlaybackReversed() -> MovementEventOrchestrator.PlaybackFinished()
+        MovementEventOrchestrator.Finished() [called when ALL playback finished are recieved] ->
+          MovementPlayback -> ScriptToggler.On() + Recorder.On()
+          MovementReseter.Load()
+
