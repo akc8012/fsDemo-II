@@ -32,7 +32,7 @@ namespace Movement
 		public void PrintStack()
 		{
 			var log = new StringBuilder();
-			foreach (var movement in MovementStack.GetStack())
+			foreach (var movement in MovementStack)
 			{
 				if (log.Length != 0)
 					log.Append("\n");
