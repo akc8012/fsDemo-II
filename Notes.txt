@@ -64,11 +64,11 @@ TODO:
     ----Extract ScriptToggler from MovementReversePlayback - Call it statically
     ----Call MovementReseter once cleanly with an Event
     ----Remove the need for GetStack() in MovementStack
-    MovementReversePlayback's WaitInterval needs to have *one* source of truth
+    ----MovementReversePlayback's WaitInterval needs to have *one* source of truth
     ----Fix TODOs in the horrible abomination that is PlayerCollider
+    Gameplay constants (ex: RecorderInterval, PauseAfterDeathTime) should live in a JSON config file
     Fix MovementReseter fucky wucki-ness with Start() (speed of CinemachineDollyCart)
     Class renaming (Movement class itself is unclear, it's just a Transform)
-
 
   ----Intellisense for VS Code Unity:
     GOTTEM!

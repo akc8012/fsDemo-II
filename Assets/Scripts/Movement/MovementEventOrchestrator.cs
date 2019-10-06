@@ -4,6 +4,10 @@ namespace Movement
 {
 	public class MovementEventOrchestrator : MonoBehaviour
 	{
+		public static float RecorderInterval = 0.0025f;
+		public static float PlaybackInterval = 0.0025f;	 // ToDo: I think you can speed up playback by making this smaller, but I'm not sure if it breaks things
+		public static float PauseAfterDeathTime = 0.25f;
+
 		public delegate void Event();
 		public static event Event StartReversePlaybackEvent;
 		public static event Event PlaybackFinishedEvent;

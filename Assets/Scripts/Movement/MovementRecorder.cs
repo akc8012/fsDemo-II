@@ -6,9 +6,6 @@ namespace Movement
 {
 	public class MovementRecorder : MonoBehaviour
 	{
-		[SerializeField]
-		float WaitInterval = 0.1f;
-
 		public MovementStack MovementStack { get; private set; } = new MovementStack();
 
 		void Awake() => MovementEventOrchestrator.WipeRecordedMovementsEvent += Wipe;
@@ -24,7 +21,7 @@ namespace Movement
 			while (true)
 			{
 				MovementStack.Push(new Movement { Position = transform.position, Rotation = transform.rotation });
-				yield return new WaitForSeconds(WaitInterval);
+				yield return new WaitForSeconds(MovementEventOrchestrator.RecorderInterval);
 			}
 		}
 

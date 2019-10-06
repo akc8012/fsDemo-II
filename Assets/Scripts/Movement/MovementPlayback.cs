@@ -8,10 +8,6 @@ namespace Movement
 	{
 		MovementRecorder Recorder;
 
-		// ToDo: This should live in once place and one place only.
-		[SerializeField]
-		float WaitInterval = 0.1f;
-
 		void Awake()
 		{
 			Recorder = GetComponent<MovementRecorder>();
@@ -22,7 +18,7 @@ namespace Movement
 
 		IEnumerator PauseAfterDeath()
 		{
-			yield return new WaitForSeconds(0.75f);
+			yield return new WaitForSeconds(MovementEventOrchestrator.PauseAfterDeathTime);
 			StartCoroutine(PlaybackReversed());
 		}
 
@@ -36,7 +32,7 @@ namespace Movement
 				transform.SetPositionAndRotation(movement.Position, movement.Rotation);
 
 				// ToDo: Control the timing via a dank-ass time spline thing
-				yield return new WaitForSeconds(WaitInterval);
+				yield return new WaitForSeconds(MovementEventOrchestrator.PlaybackInterval);
 			}
 
 			Recorder.On();
