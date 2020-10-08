@@ -3,7 +3,7 @@
 public class RandomMaterialPicker : MonoBehaviour
 {
 	[SerializeField]
-	private Material[] Materials;
+	private Material[] Materials = null;
 
 	void Start()
 	{
