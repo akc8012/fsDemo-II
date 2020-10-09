@@ -11,7 +11,7 @@ public class ColorfulPipeGenerator : MonoBehaviour
 		Vector3 position = transform.position;
 		for (int i = 0; i < Amount; i++)
 		{
-			Instantiate(ColorfulPipe, position, Quaternion.identity);
+			Instantiate(ColorfulPipe, position, Quaternion.identity, transform.parent);
 			position += SpawnOffset;
 		}
 	}
