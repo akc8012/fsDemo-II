@@ -16,8 +16,6 @@ public class Rotation : MonoBehaviour
 			do
 				Speed = Random.Range(-MaxSpeed, MaxSpeed);
 			while (Mathf.Abs(Speed) < MinSpeed);
-
-			print(Speed);
 		}
 	}
 
