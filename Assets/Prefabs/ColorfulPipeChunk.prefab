@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4586802010564877521}
   - component: {fileID: 3554122321566228960}
+  - component: {fileID: 775511765052316076}
   m_Layer: 0
   m_Name: ColorfulPipeChunk
   m_TagString: Untagged
@@ -46,7 +47,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 25
   Axis: {x: 0, y: 1, z: 0}
-  Randomize: 1
+  Randomize: 0
+--- !u!114 &775511765052316076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4586802010564877520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25165cade35c32f7b4226af5730ada7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6126125858106726880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1958,6 +1971,7 @@ MonoBehaviour:
     m_AreaError: 15
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
+  m_Mesh: {fileID: 0}
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
