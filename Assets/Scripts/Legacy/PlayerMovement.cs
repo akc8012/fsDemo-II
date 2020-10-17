@@ -44,12 +44,19 @@ namespace Legacy
 
 		void Update()
 		{
-			float h = joystick ? Input.GetAxis("Horizontal") : Input.GetAxis("Mouse X");
-			float v = joystick ? Input.GetAxis("Vertical") : Input.GetAxis("Mouse Y");
+			float h = joystick ? Input.GetAxisRaw("Horizontal") : Input.GetAxis("Mouse X");
+			float v = joystick ? Input.GetAxisRaw("Vertical") : Input.GetAxis("Mouse Y");
 
-			LocalMove(h, v, xySpeed);
+			// Question: Are these guys good at *any* rotation?
+
+			// all good
+			// LocalMove(h, v, xySpeed);
+
+			// VERY VERY WRONG
 			RotationLook(h, v, lookSpeed);
-			HorizontalLean(playerModel, h, 80, .1f);
+
+			// this is just a fun visual effect. works at any rotation
+			// HorizontalLean(playerModel, h, 80, .1f);
 
 			if (Input.GetButtonDown("Action"))
 				Boost(true);
@@ -84,6 +91,11 @@ namespace Legacy
 			transform.position = Camera.main.ViewportToWorldPoint(pos);
 		}
 
+		/*
+		It uses the aimTarget as the FORWARD DIRECTION to rotate towards!
+		This is affected by GameplayPlane's (the parent) rotation. 
+		  aimTarget needs to stay in this hiearchy, or else parent's rotations are ignored.
+		*/
 		void RotationLook(float h, float v, float speed)
 		{
 			aimTarget.parent.position = Vector3.zero;
