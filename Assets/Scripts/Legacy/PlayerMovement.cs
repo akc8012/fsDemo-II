@@ -45,8 +45,8 @@ namespace Legacy
 
 		void Update()
 		{
-			float h = joystick ? Input.GetAxisRaw("Horizontal") : Input.GetAxis("Mouse X");
-			float v = joystick ? Input.GetAxisRaw("Vertical") : Input.GetAxis("Mouse Y");
+			float h = joystick ? Input.GetAxis("Horizontal") : Input.GetAxis("Mouse X");
+			float v = joystick ? Input.GetAxis("Vertical") : Input.GetAxis("Mouse Y");
 
 			// Question: Are these guys good at *any* rotation?
 
