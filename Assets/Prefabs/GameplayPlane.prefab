@@ -10051,7 +10051,7 @@ MonoBehaviour:
   xySpeed: 12
   lookSpeed: 10000
   forwardSpeed: 50
-  aimTarget: {fileID: 4794173634828641534}
+  AimObject: {fileID: 4794173634828641534}
   dolly: {fileID: 4794173634947796783}
   cameraParent: {fileID: 4794173635057020059}
   trail: {fileID: 4794173634908008436}

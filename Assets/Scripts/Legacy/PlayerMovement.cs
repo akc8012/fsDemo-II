@@ -24,7 +24,8 @@ namespace Legacy
 		[Space]
 
 		[Header("Public References")]
-		public Transform aimTarget;
+		public Transform AimObject;
+		public Transform DirectionArrow;
 		public CinemachineDollyCart dolly;
 		public Transform cameraParent;
 
@@ -50,13 +51,13 @@ namespace Legacy
 			// Question: Are these guys good at *any* rotation?
 
 			// all good
-			// LocalMove(h, v, xySpeed);
+			LocalMove(h, v, xySpeed);
 
 			// VERY VERY WRONG
 			RotationLook(h, v, lookSpeed);
 
 			// this is just a fun visual effect. works at any rotation
-			// HorizontalLean(playerModel, h, 80, .1f);
+			HorizontalLean(playerModel, h, 80, .1f);
 
 			if (Input.GetButtonDown("Action"))
 				Boost(true);
@@ -98,9 +99,14 @@ namespace Legacy
 		*/
 		void RotationLook(float h, float v, float speed)
 		{
-			aimTarget.parent.position = Vector3.zero;
-			aimTarget.localPosition = new Vector3(h, v, 1);
-			transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(aimTarget.position), Mathf.Deg2Rad * speed * Time.deltaTime);
+			AimObject.parent.position = Vector3.zero;
+			AimObject.localPosition = new Vector3(h, v, 1);
+
+			var targetRotation = Quaternion.LookRotation(AimObject.position, transform.parent.up);
+			transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Mathf.Deg2Rad * speed * Time.deltaTime);
+
+			if (DirectionArrow != null)
+				DirectionArrow.rotation = targetRotation;
 		}
 
 		void HorizontalLean(Transform target, float axis, float leanLimit, float lerpTime)
@@ -112,8 +118,8 @@ namespace Legacy
 		private void OnDrawGizmos()
 		{
 			Gizmos.color = Color.blue;
-			Gizmos.DrawWireSphere(aimTarget.position, .5f);
-			Gizmos.DrawSphere(aimTarget.position, .15f);
+			Gizmos.DrawWireSphere(AimObject.position, .5f);
+			Gizmos.DrawSphere(AimObject.position, .15f);
 		}
 
 		public void QuickSpin(int dir)
