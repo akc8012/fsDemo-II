@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerCollider : MonoBehaviour
 {
@@ -19,6 +16,9 @@ public class PlayerCollider : MonoBehaviour
 
 		switch (other.gameObject.tag)
 		{
+			// TODO: This should be an explicit check on tags marked for player collision?
+			// It is a problem when we need something to act as a "safe" pass-through trigger that
+			// shouldn't kill the player.
 			case "Untagged":
 				InCollisionPause = true;
 				Movement.MovementEventOrchestrator.StartReversePlayback();
@@ -26,7 +26,7 @@ public class PlayerCollider : MonoBehaviour
 
 			case "Checkpoint":
 				Movement.MovementEventOrchestrator.WipeRecordedMovements();
-				other.gameObject.SetActive(false);	// this is shit, but we can kill the checkpoint after use
+				other.gameObject.SetActive(false);  // this is shit, but we can kill the checkpoint after use
 				break;
 		}
 	}

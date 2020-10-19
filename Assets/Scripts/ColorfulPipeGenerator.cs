@@ -8,7 +8,7 @@ public class ColorfulPipeGenerator : MonoBehaviour
 
 	const float RotationAmount = 3;
 
-	void Start()
+	void Awake()
 	{
 		Vector3 position = transform.position;
 		float yRotation = 0;
@@ -16,7 +16,7 @@ public class ColorfulPipeGenerator : MonoBehaviour
 		for (int i = 0; i < Count; i++)
 		{
 			var rotation = Quaternion.Euler(0, yRotation, 0);
-			Instantiate(ColorfulPipe, position, rotation, transform.parent);
+			Instantiate(ColorfulPipe, position, rotation, transform);
 
 			position += SpawnOffset;
 			yRotation += RotationAmount;

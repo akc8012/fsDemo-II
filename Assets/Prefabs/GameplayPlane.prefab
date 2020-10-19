@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 4794173634347284819}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 4794173634379314102}
   m_Layer: 0
   m_Name: GameObject (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 4794173634385358230}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9976,7 +9976,7 @@ GameObject:
   - component: {fileID: 4794173634392972262}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10052,6 +10052,7 @@ MonoBehaviour:
   lookSpeed: 10000
   forwardSpeed: 50
   AimObject: {fileID: 4794173634828641534}
+  DirectionArrow: {fileID: 0}
   dolly: {fileID: 4794173634947796783}
   cameraParent: {fileID: 4794173635057020059}
   trail: {fileID: 4794173634908008436}
@@ -10133,7 +10134,7 @@ GameObject:
   - component: {fileID: 4794173634501233022}
   m_Layer: 0
   m_Name: Model
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10196,7 +10197,7 @@ GameObject:
   - component: {fileID: 4794173634521111325}
   m_Layer: 0
   m_Name: Capsule (2)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10320,7 +10321,7 @@ GameObject:
   - component: {fileID: 4794173634908008437}
   m_Layer: 0
   m_Name: Trail
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15237,7 +15238,7 @@ GameObject:
   - component: {fileID: 4794173635045677022}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15329,7 +15330,7 @@ GameObject:
   - component: {fileID: 4794173635048175341}
   m_Layer: 0
   m_Name: Particle System
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20146,7 +20147,7 @@ GameObject:
   - component: {fileID: 4794173635237859958}
   m_Layer: 0
   m_Name: Capsule (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20238,7 +20239,7 @@ GameObject:
   - component: {fileID: 4794173635700714639}
   m_Layer: 0
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20368,7 +20369,7 @@ GameObject:
   - component: {fileID: 4794173635957784786}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20555,7 +20556,7 @@ GameObject:
   - component: {fileID: 4794173636082984049}
   m_Layer: 0
   m_Name: Circle
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25426,6 +25427,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: eadac7660e4969a4c91c550f10746636,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 4543049899306784313, guid: eadac7660e4969a4c91c550f10746636,
         type: 3}
       propertyPath: m_LocalRotation.y
@@ -25451,6 +25457,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d64a83f642da32749afcce8fb08d60f2, type: 2}
+    - target: {fileID: 7847561439347846586, guid: eadac7660e4969a4c91c550f10746636,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eadac7660e4969a4c91c550f10746636, type: 3}
 --- !u!4 &572774414776308476 stripped

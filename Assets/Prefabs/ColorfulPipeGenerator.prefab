@@ -45,6 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ColorfulPipe: {fileID: 4586802010564877520, guid: 6dfa7718ad51e5e4a99783050e06c49f,
     type: 3}
-  StartPoint: {fileID: 0}
-  Amount: 50
-  SpawnOffset: {x: 0, y: 0, z: -5}
+  Count: 200
+  SpawnOffset: {x: 0, y: -5, z: 0}
